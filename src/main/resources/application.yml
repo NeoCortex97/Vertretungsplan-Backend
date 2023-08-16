@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:arschkeks
+    driverClassName: org.h2.Driver
+    username: test
+    password: test
+  jpa:
+    database-plattform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+    open-in-view: false
+  h2:
+    console:
+      enabled: true
+  boot:
+    admin:
+      client:
+        url: http://localhost:8080
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
