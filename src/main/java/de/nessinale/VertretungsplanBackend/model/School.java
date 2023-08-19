@@ -14,14 +14,14 @@ import java.util.List;
 @NoArgsConstructor
 public class School {
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
   @Column
   private String name;
-//  @Column
-//  private Set<Teacher> teachers;
-//  @Column
-//  private Set<Room> rooms;
-//  @Column
-//  private Set<Grade> grades;
+  @ManyToMany
+  private Set<Teacher> teachers;
+  @OneToMany(mappedBy = "school")
+  private Set<Room> rooms;
+  @OneToMany(mappedBy = "school")
+  private Set<Grade> grades;
 }

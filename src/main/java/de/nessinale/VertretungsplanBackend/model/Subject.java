@@ -9,12 +9,12 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Grade {
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  private Long id;
-  @Column
-  private String name;
-  @ManyToOne
-  School school;
+public class Subject {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    Long id;
+    @Column
+    String name;
+    @Column
+    String shorthand;
 }
