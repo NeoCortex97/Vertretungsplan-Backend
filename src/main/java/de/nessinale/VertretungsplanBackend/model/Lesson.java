@@ -24,4 +24,10 @@ public class Lesson {
     Integer lesson;
     @ManyToOne
     Subject subject;
+    @ManyToOne
+    Room room;
+    @ManyToOne
+    School school;
+    @ManyToOne
+    Grade grade;
 }

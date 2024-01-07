@@ -24,4 +24,6 @@ public class School {
   private Set<Room> rooms;
   @OneToMany(mappedBy = "school")
   private Set<Grade> grades;
+  @OneToMany(mappedBy = "school")
+  private List<Lesson> lessons;
 }

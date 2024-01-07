@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @Entity
@@ -19,4 +21,6 @@ public class Room {
   private String number;
   @ManyToOne
   School school;
+  @OneToMany(mappedBy = "room")
+  List<Lesson> lessons;
 }

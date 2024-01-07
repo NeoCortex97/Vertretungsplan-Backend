@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -17,4 +19,6 @@ public class Grade {
   private String name;
   @ManyToOne
   School school;
+  @OneToMany(mappedBy = "grade")
+  List<Lesson> lessons;
 }
