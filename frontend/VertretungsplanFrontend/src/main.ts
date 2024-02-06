@@ -16,7 +16,7 @@ import App from './App.vue'
 import { createApp } from 'vue'
 
 const app = createApp(App)
-app.component("qr-code", VueQRCodeComponent);
+// app.component("qr-code", VueQRCodeComponent);
 
 registerPlugins(app)
 
