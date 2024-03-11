@@ -7,7 +7,11 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    Day: typeof import('./src/components/day.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    Lesson: typeof import('./src/components/lesson.vue')['default']
+    LessonCell: typeof import('./src/components/lessonCell.vue')['default']
+    LessonGroup: typeof import('./src/components/lessonGroup.vue')['default']
     QRCode: typeof import('./src/components/QRCode.vue')['default']
   }
 }

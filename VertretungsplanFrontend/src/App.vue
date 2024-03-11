@@ -18,84 +18,19 @@
         <tr v-bind:key="i" v-for="i in maxLen">
           <td class="term">{{ i - 1 }}</td>
           <td>
-            <div v-if="i < stunden.monday.length && stunden.monday[i - 1].group == undefined">
-              <div class="cell rounded-lg" :key="key" v-for="(lesson, key) in stunden.monday[i - 1].lessons" v-if="i < stunden.monday.length">
-                <span class="block font-weight-black">{{ lesson.subj }}</span>
-                <span class="block">{{ lesson.teacher }}</span>
-                <span class="block font-weight-thin">{{ (lesson.room.length > 0 ? lesson.room : '-') }}</span>
-              </div>
-            </div>
-            <div v-else>
-              <div class="cell rounded-lg" v-if="i < stunden.monday.length" @click="showGroup(stunden.monday[i- 1])">
-                <span class="block font-weight-black">{{ stunden.monday[i - 1].group }}</span>
-                <span class="block">GRUPPIERT</span>
-                <span class="block font-weight-thin">Für details antippen</span>
-              </div>
-            </div>
+            <lesson-cell :day="stunden.monday" :i="i"/>
           </td>
           <td>
-            <div v-if="i < stunden.tuesday.length && stunden.tuesday[i - 1].group == undefined">
-              <div class="cell rounded-lg" :key="key" v-for="(lesson, key) in stunden.tuesday[i - 1].lessons" v-if="i < stunden.tuesday.length">
-                <span class="block font-weight-black">{{ lesson.subj }}</span>
-                <span class="block">{{ lesson.teacher }}</span>
-                <span class="block font-weight-thin">{{ (lesson.room.length > 0 ? lesson.room : '-') }}</span>
-              </div>
-            </div>
-            <div v-else>
-              <div class="cell rounded-lg" v-if="i < stunden.tuesday.length">
-                <span class="block font-weight-black">{{ stunden.tuesday[i - 1].group }}</span>
-                <span class="block">GRUPPIERT</span>
-                <span class="block font-weight-thin">Für details antippen</span>
-              </div>
-            </div>
+            <lesson-cell :day="stunden.tuesday" :i="i"/>
           </td>
           <td>
-            <div v-if="i < stunden.wednesday.length && stunden.wednesday[i - 1].group == undefined">
-              <div class="cell rounded-lg" :key="key" v-for="(lesson, key) in stunden.wednesday[i - 1].lessons" v-if="i < stunden.wednesday.length">
-                <span class="block font-weight-black">{{ lesson.subj }}</span>
-                <span class="block">{{ lesson.teacher }}</span>
-                <span class="block font-weight-thin">{{ (lesson.room.length > 0 ? lesson.room : '-') }}</span>
-              </div>
-            </div>
-            <div v-else>
-              <div class="cell rounded-lg" v-if="i < stunden.wednesday.length">
-                <span class="block font-weight-black">{{ stunden.wednesday[i - 1].group }}</span>
-                <span class="block">GRUPPIERT</span>
-                <span class="block font-weight-thin">Für details antippen</span>
-              </div>
-            </div>
+            <lesson-cell :day="stunden.wednesday" :i="i"/>
           </td>
           <td>
-            <div v-if="i < stunden.thursday.length && stunden.thursday[i - 1].group == undefined">
-              <div class="cell rounded-lg" :key="key" v-for="(lesson, key) in stunden.thursday[i - 1].lessons" v-if="i < stunden.thursday.length">
-                <span class="block font-weight-black">{{ lesson.subj }}</span>
-                <span class="block">{{ lesson.teacher }}</span>
-                <span class="block font-weight-thin">{{ (lesson.room.length > 0 ? lesson.room : '-') }}</span>
-              </div>
-            </div>
-            <div v-else>
-              <div class="cell rounded-lg" v-if="i < stunden.thursday.length">
-                <span class="block font-weight-black">{{ stunden.thursday[i - 1].group }}</span>
-                <span class="block">GRUPPIERT</span>
-                <span class="block font-weight-thin">Für details antippen</span>
-              </div>
-            </div>
+            <lesson-cell :day="stunden.thursday" :i="i"/>
           </td>
           <td>
-            <div v-if="i < stunden.friday.length && stunden.friday[i - 1].group == undefined">
-              <div class="cell rounded-lg" :key="key" v-for="(lesson, key) in stunden.friday[i - 1].lessons" v-if="i < stunden.friday.length">
-                <span class="block font-weight-black">{{ lesson.subj }}</span>
-                <span class="block">{{ lesson.teacher }}</span>
-                <span class="block font-weight-thin">{{ (lesson.room.length > 0 ? lesson.room : '-') }}</span>
-              </div>
-            </div>
-            <div v-else>
-              <div class="cell rounded-lg" v-if="i < stunden.friday.length">
-                <span class="block font-weight-black">{{ stunden.friday[i - 1].group }}</span>
-                <span class="block">GRUPPIERT</span>
-                <span class="block font-weight-thin">Für details antippen</span>
-              </div>
-            </div>
+            <lesson-cell :day="stunden.friday" :i="i"/>
           </td>
         </tr>
       </v-table>
@@ -184,10 +119,6 @@
   
   function getLessonData(data: ObjectKey) {
     return 
-  }
-
-  function showGroup(data: any) {
-    console.log(data)
   }
   
   const maxLen = Math.max(...Object.values(data).map(a => a.length));
